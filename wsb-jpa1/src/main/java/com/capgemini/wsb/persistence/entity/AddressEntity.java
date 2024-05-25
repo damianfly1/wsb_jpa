@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "ADDRESS")
@@ -21,6 +22,12 @@ public class AddressEntity {
 	private String addressLine2;
 
 	private String postalCode;
+
+	@OneToOne(mappedBy = "address")
+	private DoctorEntity doctor;
+
+	@OneToOne(mappedBy = "address")
+	private PatientEntity patient;
 
 	public Long getId() {
 		return id;
@@ -62,4 +69,19 @@ public class AddressEntity {
 		this.postalCode = postalCode;
 	}
 
+	public DoctorEntity getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(DoctorEntity doctor) {
+		this.doctor = doctor;
+	}
+
+	public PatientEntity getPatient() {
+		return patient;
+	}
+
+	public void setPatient(PatientEntity patient) {
+		this.patient = patient;
+	}
 }
