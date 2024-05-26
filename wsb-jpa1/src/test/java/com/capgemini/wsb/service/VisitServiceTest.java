@@ -1,13 +1,6 @@
 package com.capgemini.wsb.service;
 
 import com.capgemini.wsb.dto.VisitTO;
-import com.capgemini.wsb.persistence.dao.DoctorDao;
-import com.capgemini.wsb.persistence.dao.PatientDao;
-import com.capgemini.wsb.persistence.dao.VisitDao;
-import com.capgemini.wsb.persistence.entity.DoctorEntity;
-import com.capgemini.wsb.persistence.entity.PatientEntity;
-import com.capgemini.wsb.persistence.entity.VisitEntity;
-import com.capgemini.wsb.persistence.enums.Specialization;
 import com.capgemini.wsb.service.impl.VisitServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,8 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,15 +19,6 @@ public class VisitServiceTest {
 
     @Autowired
     private VisitServiceImpl visitService;
-
-    @Autowired
-    private PatientDao patientDao;
-
-    @Autowired
-    private VisitDao visitDao;
-
-    @Autowired
-    private DoctorDao doctorDao;
 
     @Transactional
     @Test

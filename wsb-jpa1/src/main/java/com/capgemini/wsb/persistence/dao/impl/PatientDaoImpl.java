@@ -2,7 +2,6 @@ package com.capgemini.wsb.persistence.dao.impl;
 
 import com.capgemini.wsb.persistence.dao.PatientDao;
 import com.capgemini.wsb.persistence.entity.PatientEntity;
-import com.capgemini.wsb.persistence.entity.VisitEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements 
 
     @Override
     public List<PatientEntity> findPatientsOlderThan(int age) {
-        return entityManager.createQuery("SELECT p FROM PatientEntity p WHERE p.Age > :age", PatientEntity.class)
+        return entityManager.createQuery("SELECT p FROM PatientEntity p WHERE p.age > :age", PatientEntity.class)
                 .setParameter("age", age)
                 .getResultList();
     }

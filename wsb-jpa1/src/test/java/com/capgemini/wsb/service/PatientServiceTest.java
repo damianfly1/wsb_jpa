@@ -37,6 +37,7 @@ public class PatientServiceTest {
         long patientId = 2;
         long visitId = 2;
         int initialDoctorCount = 3;
+        int initialVisitCount = 4;
 
         // when
         patientService.deleteById(patientId);
@@ -45,6 +46,7 @@ public class PatientServiceTest {
         assertThat(patientDao.findOne(patientId)).isNull();
         assertThat(visitDao.findOne(visitId)).isNull();
         assertThat(doctorDao.count()).isEqualTo(initialDoctorCount);
+        assertThat(visitDao.count()).isEqualTo(initialVisitCount-2);
     }
 
     @Transactional

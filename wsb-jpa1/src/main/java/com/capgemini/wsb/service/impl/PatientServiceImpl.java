@@ -28,7 +28,6 @@ public class PatientServiceImpl implements PatientService {
     public void deleteById(Long id) {
         PatientEntity patientEntity = patientDao.findOne(id);
         if (patientEntity != null) {
-            visitDao.deleteAllByPatientId(id);
             patientDao.delete(id);
         }
     }
